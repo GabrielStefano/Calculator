@@ -11,55 +11,43 @@ function AddOperator(n){
     var mem = document.querySelector('input#mem')
     var num = document.querySelector('input#num')
     var solution = ''
-    // window.alert(`${isNaN(mem.value.charAt(mem.value.length-2))} ${mem.value.charAt(mem.value.length-2)} `)
-    // window.alert(num.value.charAt(0))
     if(n=='C'){
         num.value = ''
     }
     else if(n=='CE'){
+        num.value = ''
         mem.value = ''
     }
-    
-    else if(isNaN(mem.value.charAt(mem.value.length-2)) == true && num.value.charAt(0) == ''){
+    // else if(isNaN(mem.value.charAt(mem.value.length-2)) == true && (num.value.charAt(0) == '' || editável )){
+    else if(isNaN(mem.value.charAt(mem.value.length-2)) == true && num.value.charAt(0) == ''){ // used to change the operation symbol just in case the user chooses another operation instead of a number
         var straux = mem.value.slice(0, -2) +  `${n} `;
-        // mem.value(mem.value.length-1) = `a `
-        window.alert('substi')
         mem.value = straux
     }
     else{
-        // window.alert(/[x\/*\-+%]+/.test(mem.value))
+        
         if(/[x\/*\-+]+/.test(mem.value)==true && n!='.'){
             mem.value += `${num.value}`
-            // a.indexOf(a.match(/[x\/*\-+%]+/)[0])
-            // mem.value.slice(/[x\/*\-+%]+/, -2)
+            num.value = ''
             var operator = mem.value.match(/[x\/*\-+]+/)[0]
             var elements = mem.value.split(operator)
             solution = solve_operation(elements, operator)
             mem.value += ` ${operator}`
+            mem.value = `${solution} ${n} `
         }
         else{
             mem.value += `${num.value} ${n} `
+            num.value = ''
         }
     }
 
     if(mem.value.charAt(mem.value.length-2)=='='){
-        window.alert('oi') 
         if(/[x\/*\-+]+/.test(mem.value)==true)
-            window.alert('oi') 
+            window.alert('problem') 
         else{
-            mem.value = mem.value.slice(0, -3)
+            num.value = mem.value.slice(0, -3)
+            mem.value = ''
         }
-        // mem.value += `${num.value} ${n} ` 
-        // window.alert('uepa')
-        // num.value = eval(mem.value)
     }
-
-    if (solution!=''){
-        num.value = ''
-        mem.value = `${solution} ${n}`
-    }
-    else
-        num.value = ''
 }
 
 function solve_operation(elements, operator){
@@ -79,7 +67,5 @@ function solve_operation(elements, operator){
             break
         
     }
-    var num = document.querySelector('input#num')
-    // window.alert(solution)
     return solution
 }
