@@ -1,8 +1,13 @@
 function AddNumber(n){
     var num = document.querySelector('input#num')
+    var mem = document.querySelector('input#mem')
 
     if(num.value.length<9){
         num.value=`${num.value}${n}`
+    }
+
+    if (mem.value == 'ERR'){
+        mem.value = ''
     }
     
 }
@@ -11,10 +16,14 @@ function AddOperator(n){
     var mem = document.querySelector('input#mem')
     var num = document.querySelector('input#num')
     var solution = ''
+    if (mem.value == 'ERR'){
+        mem.value = ''
+        num.value = 0
+    }
     if(n=='C'){
         num.value = ''
     }
-    else if(n=='CE'){
+    else if(n=='AC'){
         num.value = ''
         mem.value = ''
     }
@@ -31,8 +40,15 @@ function AddOperator(n){
             var operator = mem.value.match(/[x\/*\-+]+/)[0]
             var elements = mem.value.split(operator)
             solution = solve_operation(elements, operator)
-            mem.value += ` ${operator}`
-            mem.value = `${solution} ${n} `
+            if (solution=='ERR'){
+                // window.alert('assdas')
+                mem.value = `${solution}`
+            }
+            else{
+                mem.value += ` ${operator}`
+                mem.value = `${solution} ${n} `
+            }
+
         }
         else{
             mem.value += `${num.value} ${n} `
@@ -67,5 +83,12 @@ function solve_operation(elements, operator){
             break
         
     }
-    return solution
+    // windowalert(solution)
+    if (String(solution).length>8){
+        return 'ERR'
+    }
+    else{
+        return solution
+    }
+   
 }
