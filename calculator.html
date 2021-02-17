@@ -4,9 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
 </head>
 <body>
+    <div class='display'>
+        <input type="text" name="mem" id="mem" onKeyDown="return false">
+        <input type="text" name="num" id="num" maxlength="8">
+    </div>
+    <div class='numbersandoperations'>
+        <input type="button" value="C" class='action cce' onclick="AddOperator('C')">
+        <input type="button" value="CE"class='action cce' onclick="AddOperator('CE')">
+        <!-- <input type="button" value="%" class='action' onclick="AddOperator('%')"> -->
+        <input type="button" value="/" class='action' onclick="AddOperator('/')">
+
+        <input type="button" value="7" class='numeric' onclick="AddNumber('7')">
+        <input type="button" value="8" class='numeric' onclick="AddNumber('8')">
+        <input type="button" value="9" class='numeric' onclick="AddNumber('9')">
+        <input type="button" value="x" class='action' onclick="AddOperator('x')">
+
+        <input type="button" value="4" class='numeric' onclick="AddNumber('4')">
+        <input type="button" value="5" class='numeric' onclick="AddNumber('5')">
+        <input type="button" value="6" class='numeric' onclick="AddNumber('6')">
+        <input type="button" value="-" class='action' onclick="AddOperator('-')">
+
+        <input type="button" value="1" class='numeric' onclick="AddNumber('1')">
+        <input type="button" value="2" class='numeric' onclick="AddNumber('2')">
+        <input type="button" value="3" class='numeric' onclick="AddNumber('3')">
+        <input type="button" value="+" class='action' onclick="AddOperator('+')">
+
+        <input type="button" value="0" class='numeric zero' onclick="AddNumber('0')">
+        <!-- <input type="button" value="00" class='numeric'> -->
+        <input type="button" value="." class='numeric' onclick="AddOperator('.')">
+        <input type="button" value="=" class='action result' onclick="AddOperator('=')">
+    </div>
     
+    <div class='footer'>
+        <p>Gabriel Stefano</p>
+    </div>
+    <script src="calculator.js"></script>
 </body>
 </html>

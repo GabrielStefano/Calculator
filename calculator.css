@@ -3,3 +3,129 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    background-color: #65bbd2;
+    width: 400px;
+    margin: auto;
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    /* justify-content: end; */
+    align-items: flex-end;
+    justify-content: space-around;
+    margin-top: 200px;
+    background: white;
+    height: 100px;
+    border: 2px black solid;
+
+}
+
+.display input{
+    height: 50px;
+    text-align: right;
+    font-size: 40pt;
+    border-left: none;    
+}
+
+.display input:focus, textarea:focus, select:focus{ 
+    outline: none;
+}
+
+/* *:focus {
+    outline: none;
+} */
+
+.display input:first-of-type{
+    width: 398px;
+    /* height: 50px;
+    text-align: right;
+    font-size: 40pt; */
+    color: transparent;
+    justify-self: start;
+    text-shadow: 0 0 0 #48494b;
+    font-size: 20pt;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    border-left: 2px black solid;
+    
+}
+
+.display input:last-of-type{
+    width: 280px;
+    /* width: 280px;
+    height: 50px;
+    text-align: right;
+    font-size: 40pt; */
+    color: transparent;
+    /* justify-self: start; */
+    text-shadow: 0 0 0 black;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+
+
+.numbersandoperations {
+    display: inline-block;
+    font-size: 0;
+    vertical-align: middle;
+}
+
+
+
+
+.numbersandoperations input{
+    cursor: pointer;
+    /* background: #191a1c; */
+    color: #969ea5;
+    font-size: 40px;
+    width: 100px;
+    height: 80px;
+    border: none; 
+    outline: none;
+}
+
+
+
+
+.action {
+    background: #242529;
+}
+
+.numeric {
+    background: #191a1c;
+}
+
+.action:active {
+    background: white;
+}
+
+.numeric:active{
+    background: white;
+}
+
+.zero {
+    width: 200px !important;
+}
+
+.cce{
+    width: 150px !important;
+}
+
+.result{
+    background: #267e94;
+}
+
+.footer{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12pt;
+    font-style: italic;
+    padding-top: 10px;
+}
